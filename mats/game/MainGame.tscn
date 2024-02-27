@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcfpv1vqe67us"]
+
+[ext_resource type="Script" path="res://mats/game/MainGame.cs" id="1_3mgra"]
+[ext_resource type="PackedScene" uid="uid://dw2na1qq8jpuf" path="res://mats/levels/scens/arena/scenario.tscn" id="2_sjjtl"]
+[ext_resource type="PackedScene" uid="uid://dmpyx2aynwo4g" path="res://mats/UI/vidget/item.tscn" id="3_0nxmm"]
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3mgra")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="world" type="Node2D" parent="."]
+
+[node name="ui" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="Control" parent="ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scnt" type="ScrollContainer" parent="ui/menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 92
+horizontal_scroll_mode = 0
+
+[node name="vbc" type="VBoxContainer" parent="ui/menu/scnt"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="hbc" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="item" parent="ui/menu/scnt/vbc/hbc" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="hbc2" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="item" parent="ui/menu/scnt/vbc/hbc2" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="item2" parent="ui/menu/scnt/vbc/hbc2" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="item3" parent="ui/menu/scnt/vbc/hbc2" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="hbc3" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="item" parent="ui/menu/scnt/vbc/hbc3" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="item2" parent="ui/menu/scnt/vbc/hbc3" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="hbc4" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="item2" parent="ui/menu/scnt/vbc/hbc4" instance=ExtResource("3_0nxmm")]
+layout_mode = 2
+Scenario = ExtResource("2_sjjtl")
+
+[node name="Button" type="Button" parent="ui/menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "BACK"
+
+[node name="gm" type="Control" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="ui/menu/Button" to="." method="BackToMenu"]

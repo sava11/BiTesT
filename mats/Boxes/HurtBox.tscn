@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://br5ngowaojnn2"]
+
+[ext_resource type="Script" path="res://mats/Boxes/HurtBox.cs" id="1_fwo02"]
+
+[node name="HurtBox" type="Area2D"]
+script = ExtResource("1_fwo02")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="BodyEntered"]
+[connection signal="timeout" from="Timer" to="." method="TimerTimeout"]

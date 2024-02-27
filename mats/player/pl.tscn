@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5wqamf6vp5ts"]
+
+[ext_resource type="Script" path="res://mats/player/Player.cs" id="1_5qsik"]
+[ext_resource type="PackedScene" uid="uid://br5ngowaojnn2" path="res://mats/Boxes/HurtBox.tscn" id="2_2d7o8"]
+[ext_resource type="Shader" path="res://mats/shaders/circ.gdshader" id="3_sa1e5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vudfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qotst"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6ova"]
+shader = ExtResource("3_sa1e5")
+shader_parameter/sector = 1.0
+
+[sub_resource type="Animation" id="Animation_q7fgs"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.584314, 0.584314, 0.584314, 1), Color(1, 1, 1, 1), Color(0.584314, 0.584314, 0.584314, 1), Color(1, 1, 1, 1), Color(0.584314, 0.584314, 0.584314, 1), Color(1, 1, 1, 1), Color(0.584314, 0.584314, 0.584314, 1), Color(1, 1, 1, 1), Color(0.584314, 0.584314, 0.584314, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ulct"]
+_data = {
+"hit": SubResource("Animation_q7fgs")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_5qsik")
+Acceleration = 3200.0
+SpiritSpeed = 900.0
+SpiritAcceleration = 5000.0
+
+[node name="c" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vudfn")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_2d7o8")]
+collision_layer = 8
+collision_mask = 8
+HeartPoints = 6
+
+[node name="c" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_qotst")
+
+[node name="Skin" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_e6ova")
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+rotation = -1.5708
+scale = Vector2(-1, 1)
+
+[node name="ap" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ulct")
+}
+
+[node name="asp" type="AudioStreamPlayer" parent="."]
+bus = &"effects"
+
+[connection signal="Hited" from="HurtBox" to="." method="Hited"]
+[connection signal="ZeroLimit" from="HurtBox" to="." method="ZeroLimit"]

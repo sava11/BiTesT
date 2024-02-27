@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmpyx2aynwo4g"]
+
+[ext_resource type="Texture2D" uid="uid://de8r3wyv6hgq5" path="res://icon.svg" id="1_fuujn"]
+[ext_resource type="Script" path="res://mats/UI/vidget/item.cs" id="1_hujsn"]
+
+[sub_resource type="SystemFont" id="SystemFont_rn1dw"]
+subpixel_positioning = 0
+
+[node name="item" type="Button"]
+custom_minimum_size = Vector2(256, 191)
+offset_right = 160.0
+offset_bottom = 128.0
+theme_override_fonts/font = SubResource("SystemFont_rn1dw")
+script = ExtResource("1_hujsn")
+
+[node name="pnl1" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 36.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="txt" type="Label" parent="pnl1"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "VOIDER - DISSOTO"
+horizontal_alignment = 1
+
+[node name="pnl2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 40.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="img" type="TextureRect" parent="pnl2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_fuujn")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="button_down" from="." to="." method="OnSelect"]

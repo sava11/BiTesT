@@ -1,0 +1,531 @@
+[gd_scene load_steps=14 format=3 uid="uid://f5uanvwxdh73"]
+
+[ext_resource type="Script" path="res://mats/game/menu/MainMenu.cs" id="1_k4s4v"]
+[ext_resource type="Script" path="res://mats/levels/Polygon2D.cs" id="2_e3b33"]
+[ext_resource type="Script" path="res://mats/game/menu/settings.cs" id="2_s3nb5"]
+[ext_resource type="AudioStream" uid="uid://bp8r5s4aaadxc" path="res://mats/sounds/twrauw.wav" id="3_kq2bo"]
+
+[sub_resource type="Animation" id="Animation_w0pmn"]
+resource_name = "exit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu/single:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(896, 304), Vector2(1280, 304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu/sett:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(944, 352), Vector2(1280, 352)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("menu/exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 400), Vector2(1280, 400)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ToExit"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("menu/gm_txt:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gro4v"]
+resource_name = "play"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu/single:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(896, 304), Vector2(1280, 304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu/sett:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(944, 352), Vector2(1280, 352)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("menu/exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 400), Vector2(1280, 400)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ToGame"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("menu/gm_txt:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(848, 192), Vector2(1312, 192)]
+}
+
+[sub_resource type="Animation" id="Animation_33g5u"]
+resource_name = "settings"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu/single:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(896, 304), Vector2(1280, 304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu/sett:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(944, 352), Vector2(1280, 352)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("menu/exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(992, 400), Vector2(1280, 400)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ToSettings"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("menu/gm_txt:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(848, 192), Vector2(1312, 192)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t7jxg"]
+_data = {
+"exit": SubResource("Animation_w0pmn"),
+"play": SubResource("Animation_gro4v"),
+"settings": SubResource("Animation_33g5u")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jf71"]
+content_margin_left = 0.0
+bg_color = Color(0, 0.45098, 0.4, 1)
+border_width_left = 8
+corner_radius_bottom_left = 32
+corner_detail = 1
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42cpr"]
+bg_color = Color(0, 0.576471, 0.513726, 1)
+corner_radius_bottom_left = 32
+corner_detail = 1
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owujd"]
+content_margin_left = 0.0
+bg_color = Color(0, 0.388235, 0.345098, 1)
+border_width_left = 12
+corner_radius_bottom_left = 32
+corner_detail = 1
+anti_aliasing_size = 0.01
+
+[sub_resource type="Theme" id="Theme_j673b"]
+Button/styles/hover = SubResource("StyleBoxFlat_4jf71")
+Button/styles/normal = SubResource("StyleBoxFlat_42cpr")
+Button/styles/pressed = SubResource("StyleBoxFlat_owujd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uakwt"]
+bg_color = Color(0, 0.47451, 0.47451, 1)
+border_width_left = 11
+corner_radius_top_left = 32
+corner_radius_bottom_left = 64
+expand_margin_left = 16.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k4s4v")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="anims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t7jxg")
+}
+
+[node name="menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j673b")
+
+[node name="gm_txt" type="Label" parent="menu"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 192.0
+offset_right = 1280.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_uakwt")
+text = "VOIDER"
+horizontal_alignment = 1
+
+[node name="single" type="Button" parent="menu"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_left = 896.0
+offset_top = 304.0
+offset_right = 1280.0
+offset_bottom = 336.0
+focus_mode = 0
+text = "SINGLEPLAY"
+
+[node name="sett" type="Button" parent="menu"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_left = 944.0
+offset_top = 352.0
+offset_right = 1280.0
+offset_bottom = 384.0
+focus_mode = 0
+text = "SETTINGS"
+
+[node name="exit" type="Button" parent="menu"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_left = 992.0
+offset_top = 400.0
+offset_right = 1280.0
+offset_bottom = 432.0
+focus_mode = 0
+text = "GAME_EXIT"
+
+[node name="settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s3nb5")
+
+[node name="menu" type="Panel" parent="settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -232.0
+offset_right = 320.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="snd" type="HBoxContainer" parent="settings/menu"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 111.0
+
+[node name="txt" type="VBoxContainer" parent="settings/menu/snd"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="snd" type="Label" parent="settings/menu/snd/txt"]
+layout_mode = 2
+text = "ST_MUSIC"
+
+[node name="snd2" type="Label" parent="settings/menu/snd/txt"]
+layout_mode = 2
+text = "ST_EFFECTS
+"
+
+[node name="c" type="VBoxContainer" parent="settings/menu/snd"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="music" type="HSlider" parent="settings/menu/snd/c"]
+layout_mode = 2
+max_value = 200.0
+step = 10.0
+value = 100.0
+
+[node name="sound" type="HSlider" parent="settings/menu/snd/c"]
+layout_mode = 2
+max_value = 200.0
+step = 10.0
+value = 100.0
+
+[node name="bc" type="Button" parent="settings/menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 96.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "BACK"
+
+[node name="aply" type="Button" parent="settings/menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "APPLY"
+
+[node name="scr_sz" type="VBoxContainer" parent="settings/menu"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 52.0
+offset_right = 536.0
+offset_bottom = 99.0
+
+[node name="t" type="Label" parent="settings/menu/scr_sz"]
+layout_mode = 2
+text = "SCR_SZ"
+
+[node name="sz" type="OptionButton" parent="settings/menu/scr_sz"]
+layout_mode = 2
+alignment = 2
+
+[node name="lng" type="HBoxContainer" parent="settings/menu"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 133.0
+offset_right = 200.0
+offset_bottom = 164.0
+
+[node name="t" type="Label" parent="settings/menu/lng"]
+layout_mode = 2
+text = "LANG"
+
+[node name="lng" type="OptionButton" parent="settings/menu/lng"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Русский"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
+[node name="fscr" type="HBoxContainer" parent="settings/menu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -16.0
+offset_right = -17.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="cb" type="CheckButton" parent="settings/menu/fscr"]
+layout_mode = 2
+
+[node name="fs" type="Label" parent="settings/menu/fscr"]
+layout_mode = 2
+text = "FULL_SCREEN_MODE"
+
+[node name="snd" type="AudioStreamPlayer" parent="settings"]
+stream = ExtResource("3_kq2bo")
+bus = &"effects"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(480, 304)
+color = Color(0.901961, 0.235294, 0.0941176, 1)
+antialiased = true
+script = ExtResource("2_e3b33")
+w = 0
+lines = PackedVector2Array(120, 120, 240, 120, 360, 120)
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+z_index = -1
+rotation = 3.14159
+color = Color(0.584314, 0, 0.0705882, 1)
+script = ExtResource("2_e3b33")
+w = 0
+lines = PackedVector2Array(10, 1024, 90, 10, -90, 10, -10, 1024)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Polygon2D"]
+z_index = -1
+rotation = 1.0472
+color = Color(0.584314, 0, 0.0705882, 1)
+script = ExtResource("2_e3b33")
+w = 0
+lines = PackedVector2Array(10, 1024, 90, 10, -90, 10, -10, 1024)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Polygon2D"]
+z_index = -1
+rotation = -1.0472
+color = Color(0.584314, 0, 0.0705882, 1)
+script = ExtResource("2_e3b33")
+w = 0
+lines = PackedVector2Array(10, 1024, 90, 10, -90, 10, -10, 1024)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Polygon2D"]
+color = Color(0.988235, 0.431373, 0.321569, 1)
+antialiased = true
+script = ExtResource("2_e3b33")
+w = 15
+pos = Vector2(-30, 90)
+lines = PackedVector2Array(120, 40, 240, 40, 360, 40)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Polygon2D"]
+color = Color(0.988235, 0.431373, 0.321569, 1)
+antialiased = true
+script = ExtResource("2_e3b33")
+w = 15
+pos = Vector2(90, 90)
+lines = PackedVector2Array(120, 40, 360, 40, 240, 40)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Polygon2D"]
+color = Color(0.988235, 0.431373, 0.321569, 1)
+antialiased = true
+script = ExtResource("2_e3b33")
+w = 15
+pos = Vector2(210, 90)
+lines = PackedVector2Array(360, 40, 120, 40, 240, 40)
+
+[connection signal="button_down" from="menu/single" to="." method="OnSinglePlayer"]
+[connection signal="button_down" from="menu/sett" to="." method="OnSetting"]
+[connection signal="button_down" from="menu/exit" to="." method="OnExit"]
+[connection signal="value_changed" from="settings/menu/snd/c/music" to="settings" method="MusicValueChanged"]
+[connection signal="drag_ended" from="settings/menu/snd/c/sound" to="settings" method="EffectsDragEnded"]
+[connection signal="value_changed" from="settings/menu/snd/c/sound" to="settings" method="EffectsValueChanged"]
+[connection signal="button_down" from="settings/menu/bc" to="settings" method="Back"]
+[connection signal="button_down" from="settings/menu/aply" to="settings" method="Apply"]
+[connection signal="item_selected" from="settings/menu/scr_sz/sz" to="settings" method="SizeItemSelected"]
+[connection signal="item_selected" from="settings/menu/lng/lng" to="settings" method="LanguageChanger"]
+[connection signal="toggled" from="settings/menu/fscr/cb" to="settings" method="FullScreanToggled"]
