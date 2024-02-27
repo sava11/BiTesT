@@ -2,7 +2,7 @@ using Godot;
 
 public partial class scenario : Node2D
 {
-    [Signal] public delegate void ScenarioEndEventHandler();
+    [Signal] public delegate void ScenarioEndEventHandler(bool FullRun);
     [Export] bool Endless;
     [Export] float EndTime;
     [Export] float[] Checkpoints;
@@ -17,7 +17,7 @@ public partial class scenario : Node2D
         if (EndTime<=timeTemp)
         {
             if (!Endless)
-                EmitSignal("ScenarioEnd");
+                EmitSignal("ScenarioEnd",true);
             else
             {
                 timeTemp=0;

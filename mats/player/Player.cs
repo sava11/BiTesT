@@ -4,7 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	[Signal] 
-	public delegate void DeadEventHandler();
+	public delegate void DeadEventHandler(bool Alive);
 	[Export(PropertyHint.Range, "1,1000,1,or_greater")] 
 	float Speed=500f;
 	[Export(PropertyHint.Range, "1,1000,1,or_greater")] 
@@ -104,6 +104,7 @@ public partial class Player : CharacterBody2D
 	public void ZeroLimit(){
 		if(alive){
 			alive=false;
+			EmitSignal("Dead",alive);
 			GetNode<ColorRect>("Skin").Material.Set("shader_parameter/sector",1f);
 			GetNode<ColorRect>("Skin").Color=new Color(0.5f,0.5f,0.5f,1);
 			GetNode<AudioStreamPlayer>("asp").Stream=

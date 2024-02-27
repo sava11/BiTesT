@@ -5,9 +5,10 @@ public partial class MainGame : Control
 {
     Control ui=null;
     item selectedItem=null;
-    [Export] int LvlAcess=1;
+    [Export] static int LvlAcess=1;
     Dictionary data=new Dictionary {
         {"trained",false},
+        {"ad",LvlAcess},
         {"lvls",new Dictionary{}}
     };
     string spath="saves";

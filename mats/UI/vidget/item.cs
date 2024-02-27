@@ -23,15 +23,17 @@ public partial class item : Button
             scnObj.ScenarioEnd+=end;
             Arena.AddChild(scnObj);
             Arena.GetNode<Player>("Player").MotionMode=CharacterBody2D.MotionModeEnum.Floating;
+            Arena.GetNode<Player>("Player").Dead+=end;
             wrld.AddChild(Arena);
             wrld.MoveChild(Arena,0);
             GetTree().CurrentScene.GetNode<Control>("ui/menu").Hide();
             GetTree().CurrentScene.GetNode<Control>("ui/gm").Show();
         }
     }
-    private void end()
+    private void end(bool FullRun)
     {
-        ((MainGame)GetTree().CurrentScene).runned(GetPath(),true);
+        GD.Print("runned "+FullRun);
+        //((MainGame)GetTree().CurrentScene).runned(GetPath(),true);
         Arena.QueueFree();
         GetTree().CurrentScene.GetNode<Control>("ui/menu").Show();
         GetTree().CurrentScene.GetNode<Control>("ui/gm").Hide();
