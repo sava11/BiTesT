@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using Godot;
 using Godot.Collections;
 public partial class MainGame : Control
@@ -8,7 +8,7 @@ public partial class MainGame : Control
     [Export] static int LvlAcess=1;
     Dictionary data=new Dictionary {
         {"trained",false},
-        {"ad",LvlAcess},
+        {"lvlac",LvlAcess},
         {"lvls",new Dictionary{}}
     };
     string spath="saves";
@@ -26,19 +26,31 @@ public partial class MainGame : Control
                     
                 }
             }
+            GetNode<Label>("ui/menu/lvl_run/runned").Text="0";
             sls.SaveData(spath+"/save.json",data);
         }
         else
         {
+            int totalRun=0;
             data=sls.LoadData(spath+"/save.json");
-            foreach(HBoxContainer c1 in vbc.GetChildren())
+            LvlAcess=(int)data["lvlac"];
+            foreach(HBoxContainer _floor in vbc.GetChildren())
             {
-                foreach(item c2 in c1.GetChildren())
+                int lvlsRunnedOnFloor=0;
+                foreach(item lvl in _floor.GetChildren())
                 {
-                    Dictionary lvl = (Dictionary)((Dictionary)data["lvls"])[(string)c2.GetPath()];
-                    c2.Disabled=(bool)(lvl["runned"]);
+                    Dictionary lvlData = (Dictionary)((Dictionary)data["lvls"])[(string)lvl.GetPath()];
+                    lvl.Runned=(bool)lvlData["runned"];
+                    if (lvl.Runned) lvlsRunnedOnFloor++;
+            
+                    if (lvlsRunnedOnFloor==_floor.GetChildCount())
+                    {
+                        LvlAcess+=1;
+                    }
+                    totalRun+=lvlsRunnedOnFloor;
                 }
             }
+            GetNode<Label>("ui/menu/lvl_run/runned").Text=totalRun.ToString();
         }
         ui=GetNode<Control>("ui");
         selectedItem=
@@ -53,11 +65,28 @@ public partial class MainGame : Control
         int c=ui.GetNode<VBoxContainer>("menu/scnt/vbc").GetChildCount();
         foreach(HBoxContainer cnt in ui.GetNode<VBoxContainer>("menu/scnt/vbc").GetChildren())
         {cnt.Visible=cnt.GetIndex()>=c-LvlAcess;}
+        
     }
     public void runned(NodePath np, bool value)
     {
         ((Dictionary)((Dictionary)((Dictionary)data)["lvls"])[(string)np])["runned"]=value;
-        GetNode<item>(np).Disabled=true;
+        GetNode<item>(np).Runned=value;
+        int totalRun=0;
+        VBoxContainer vbc = GetNode<VBoxContainer>("ui/menu/scnt/vbc");
+        foreach(HBoxContainer _floor in vbc.GetChildren())
+        {
+            int lvlsRunnedOnFloor=0;
+            foreach(item lvl in _floor.GetChildren())
+            {
+                if (lvl.Runned) lvlsRunnedOnFloor++;
+            }
+            if (lvlsRunnedOnFloor==_floor.GetChildCount())
+            {
+                LvlAcess+=1;
+            }
+            totalRun+=lvlsRunnedOnFloor;
+        }
+        GetNode<Label>("ui/menu/lvl_run/runned").Text=totalRun.ToString();
         sls.SaveData(spath+"/save.json",data);
     }
     void BackToMenu()

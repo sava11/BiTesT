@@ -15,7 +15,6 @@ public partial class Polygon2D : Godot.Polygon2D
 		{
 			Vector2 e=lines[i];
 			Vector2 ps=Functions.Move(e.X+90)*e.Y;
-			GD.Print(ps);
 			pol.Add(ps);
 		}
 		if (w>=1){

@@ -3,6 +3,7 @@ public partial class item : Button
 {
     [Export] PackedScene Scenario;
     [Export] bool ExtendToName=false;
+    [Export] public bool Runned=false;
     Label txt;
     StaticBody2D Arena=null;
     public override void _Ready()
@@ -32,9 +33,14 @@ public partial class item : Button
     }
     private void end(bool FullRun)
     {
-        GD.Print("runned "+FullRun);
-        //((MainGame)GetTree().CurrentScene).runned(GetPath(),true);
+        ((MainGame)GetTree().CurrentScene).runned(GetPath(),FullRun);
+        if (FullRun)
+        {
+            ((StyleBoxFlat)GetNode<Panel>("bg").Get("theme_override_styles/panel")).BgColor=new Color("#648d7d");
+        }
+        //64587d
         Arena.QueueFree();
+        GrabFocus();
         GetTree().CurrentScene.GetNode<Control>("ui/menu").Show();
         GetTree().CurrentScene.GetNode<Control>("ui/gm").Hide();
 
