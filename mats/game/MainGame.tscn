@@ -44,63 +44,70 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="vbc" type="VBoxContainer" parent="ui/menu/scnt"]
+[node name="lvls" type="VBoxContainer" parent="ui/menu/scnt"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="hbc" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+[node name="lvl4" type="HBoxContainer" parent="ui/menu/scnt/lvls"]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="item" parent="ui/menu/scnt/vbc/hbc" instance=ExtResource("3_0nxmm")]
+[node name="item" parent="ui/menu/scnt/lvls/lvl4" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
-[node name="hbc2" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+[node name="lvl3" type="HBoxContainer" parent="ui/menu/scnt/lvls"]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="item" parent="ui/menu/scnt/vbc/hbc2" instance=ExtResource("3_0nxmm")]
+[node name="item" parent="ui/menu/scnt/lvls/lvl3" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
-[node name="item2" parent="ui/menu/scnt/vbc/hbc2" instance=ExtResource("3_0nxmm")]
+[node name="item2" parent="ui/menu/scnt/lvls/lvl3" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
-[node name="item3" parent="ui/menu/scnt/vbc/hbc2" instance=ExtResource("3_0nxmm")]
+[node name="item3" parent="ui/menu/scnt/lvls/lvl3" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
-[node name="hbc3" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+[node name="lvl2" type="HBoxContainer" parent="ui/menu/scnt/lvls"]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="item" parent="ui/menu/scnt/vbc/hbc3" instance=ExtResource("3_0nxmm")]
+[node name="item" parent="ui/menu/scnt/lvls/lvl2" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
-[node name="item2" parent="ui/menu/scnt/vbc/hbc3" instance=ExtResource("3_0nxmm")]
+[node name="item2" parent="ui/menu/scnt/lvls/lvl2" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
-[node name="hbc4" type="HBoxContainer" parent="ui/menu/scnt/vbc"]
+[node name="lvl1" type="HBoxContainer" parent="ui/menu/scnt/lvls"]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="item2" parent="ui/menu/scnt/vbc/hbc4" instance=ExtResource("3_0nxmm")]
+[node name="item2" parent="ui/menu/scnt/lvls/lvl1" instance=ExtResource("3_0nxmm")]
 layout_mode = 2
+focus_mode = 0
 Scenario = ExtResource("2_sjjtl")
 
 [node name="Button" type="Button" parent="ui/menu"]

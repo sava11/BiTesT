@@ -6,7 +6,8 @@
 [sub_resource type="SystemFont" id="SystemFont_rn1dw"]
 subpixel_positioning = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4mj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sypaw"]
+resource_local_to_scene = true
 bg_color = Color(0.392157, 0.345098, 0.490196, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
@@ -30,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ri4mj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sypaw")
 
 [node name="pnl1" type="Panel" parent="."]
 layout_mode = 1

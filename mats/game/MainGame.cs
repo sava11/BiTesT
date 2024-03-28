@@ -15,7 +15,7 @@ public partial class MainGame : Control
     public override void _Ready()
     {
         DirAccess.MakeDirRecursiveAbsolute(spath);
-        VBoxContainer vbc = GetNode<VBoxContainer>("ui/menu/scnt/vbc");
+        VBoxContainer vbc = GetNode<VBoxContainer>("ui/menu/scnt/lvls");
         if (!FileAccess.FileExists(spath+"/save.json")){
             foreach(HBoxContainer c1 in vbc.GetChildren())
             {
@@ -41,8 +41,11 @@ public partial class MainGame : Control
                 {
                     Dictionary lvlData = (Dictionary)((Dictionary)data["lvls"])[(string)lvl.GetPath()];
                     lvl.Runned=(bool)lvlData["runned"];
-                    if (lvl.Runned) lvlsRunnedOnFloor++;
-            
+                    if (lvl.Runned) {
+                        lvlsRunnedOnFloor++;
+                        ((StyleBoxFlat)lvl.GetNode<Panel>("bg").Get("theme_override_styles/panel")).BgColor=
+                        new Color("#648d7d");
+                    }
                     if (lvlsRunnedOnFloor==_floor.GetChildCount())
                     {
                         LvlAcess+=1;
@@ -54,16 +57,16 @@ public partial class MainGame : Control
         }
         ui=GetNode<Control>("ui");
         selectedItem=
-        ui.GetNode<Container>("menu/scnt/vbc").GetChild(
-            ui.GetNode<Container>("menu/scnt/vbc").GetChildCount()-1
+        ui.GetNode<Container>("menu/scnt/lvls").GetChild(
+            ui.GetNode<Container>("menu/scnt/lvls").GetChildCount()-1
         ).GetChild<item>(0);
         selectedItem.GrabFocus();
         
     }
     public override void _PhysicsProcess(double delta)
     {
-        int c=ui.GetNode<VBoxContainer>("menu/scnt/vbc").GetChildCount();
-        foreach(HBoxContainer cnt in ui.GetNode<VBoxContainer>("menu/scnt/vbc").GetChildren())
+        int c=ui.GetNode<VBoxContainer>("menu/scnt/lvls").GetChildCount();
+        foreach(HBoxContainer cnt in ui.GetNode<VBoxContainer>("menu/scnt/lvls").GetChildren())
         {cnt.Visible=cnt.GetIndex()>=c-LvlAcess;}
         
     }
@@ -72,13 +75,18 @@ public partial class MainGame : Control
         ((Dictionary)((Dictionary)((Dictionary)data)["lvls"])[(string)np])["runned"]=value;
         GetNode<item>(np).Runned=value;
         int totalRun=0;
-        VBoxContainer vbc = GetNode<VBoxContainer>("ui/menu/scnt/vbc");
+        VBoxContainer vbc = GetNode<VBoxContainer>("ui/menu/scnt/lvls");
         foreach(HBoxContainer _floor in vbc.GetChildren())
         {
             int lvlsRunnedOnFloor=0;
             foreach(item lvl in _floor.GetChildren())
             {
-                if (lvl.Runned) lvlsRunnedOnFloor++;
+                if (lvl.Runned) 
+                {
+                    lvlsRunnedOnFloor++;
+                    ((StyleBoxFlat)lvl.GetNode<Panel>("bg").Get("theme_override_styles/panel")).BgColor=
+                    new Color("#648d7d");
+                }
             }
             if (lvlsRunnedOnFloor==_floor.GetChildCount())
             {

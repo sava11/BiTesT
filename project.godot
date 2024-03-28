@@ -29,6 +29,13 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="bullet hell"
 
+[importer_defaults]
+
+csv_translation={
+"compress": true,
+"delimiter": 0
+}
+
 [input]
 
 Up={
@@ -74,6 +81,11 @@ attack={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://mats/UI/translations/tr.en.translation", "res://mats/UI/translations/tr.ru.translation")
 
 [layer_names]
 

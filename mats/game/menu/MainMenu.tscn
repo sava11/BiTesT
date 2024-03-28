@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://f5uanvwxdh73"]
+[gd_scene load_steps=15 format=3 uid="uid://f5uanvwxdh73"]
 
 [ext_resource type="Script" path="res://mats/game/menu/MainMenu.cs" id="1_k4s4v"]
 [ext_resource type="Script" path="res://mats/levels/Polygon2D.cs" id="2_e3b33"]
@@ -211,10 +211,19 @@ _data = {
 "settings": SubResource("Animation_33g5u")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jf71"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrvy4"]
 content_margin_left = 0.0
 bg_color = Color(0, 0.45098, 0.4, 1)
 border_width_left = 8
+corner_radius_bottom_left = 32
+corner_detail = 1
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jf71"]
+content_margin_left = 0.0
+bg_color = Color(0, 0.647059, 0.576471, 1)
+border_width_left = 8
+border_color = Color(1, 1, 1, 1)
 corner_radius_bottom_left = 32
 corner_detail = 1
 anti_aliasing_size = 0.01
@@ -234,6 +243,7 @@ corner_detail = 1
 anti_aliasing_size = 0.01
 
 [sub_resource type="Theme" id="Theme_j673b"]
+Button/styles/focus = SubResource("StyleBoxFlat_qrvy4")
 Button/styles/hover = SubResource("StyleBoxFlat_4jf71")
 Button/styles/normal = SubResource("StyleBoxFlat_42cpr")
 Button/styles/pressed = SubResource("StyleBoxFlat_owujd")
@@ -384,10 +394,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -232.0
-offset_right = 320.0
-offset_bottom = 232.0
+offset_left = -288.0
+offset_top = -136.0
+offset_right = 288.0
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -408,8 +418,7 @@ text = "ST_MUSIC"
 
 [node name="snd2" type="Label" parent="settings/menu/snd/txt"]
 layout_mode = 2
-text = "ST_EFFECTS
-"
+text = "ST_EFFECTS"
 
 [node name="c" type="VBoxContainer" parent="settings/menu/snd"]
 custom_minimum_size = Vector2(160, 0)
@@ -458,10 +467,10 @@ text = "APPLY"
 
 [node name="scr_sz" type="VBoxContainer" parent="settings/menu"]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 52.0
-offset_right = 536.0
-offset_bottom = 99.0
+offset_left = 320.0
+offset_top = 48.0
+offset_right = 456.0
+offset_bottom = 95.0
 
 [node name="t" type="Label" parent="settings/menu/scr_sz"]
 layout_mode = 2
@@ -473,10 +482,10 @@ alignment = 2
 
 [node name="lng" type="HBoxContainer" parent="settings/menu"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 133.0
-offset_right = 200.0
-offset_bottom = 164.0
+offset_left = 16.0
+offset_top = 128.0
+offset_right = 208.0
+offset_bottom = 159.0
 
 [node name="t" type="Label" parent="settings/menu/lng"]
 layout_mode = 2
@@ -495,17 +504,10 @@ popup/item_1/id = 1
 
 [node name="fscr" type="HBoxContainer" parent="settings/menu"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -225.0
-offset_top = -16.0
-offset_right = -17.0
-offset_bottom = 16.0
-grow_horizontal = 0
-grow_vertical = 2
+offset_left = 16.0
+offset_top = 176.0
+offset_right = 224.0
+offset_bottom = 208.0
 
 [node name="cb" type="CheckButton" parent="settings/menu/fscr"]
 layout_mode = 2

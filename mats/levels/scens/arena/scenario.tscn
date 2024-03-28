@@ -140,7 +140,7 @@ _data = {
 
 [node name="scenario" type="Node2D"]
 script = ExtResource("1_fr66t")
-EndTime = 32.5
+EndTime = 5.0
 Checkpoints = PackedFloat32Array(0.375, 0.625)
 
 [node name="circ" type="Node2D" parent="."]

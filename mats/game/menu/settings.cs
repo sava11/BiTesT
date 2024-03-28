@@ -110,6 +110,8 @@ public partial class settings : Control
     } 
     void LanguageChanger(int id){
         data["Lang"]=GetNode<OptionButton>("menu/lng/lng").Selected;
+        if((int)data["Lang"]==0){TranslationServer.SetLocale("ru");}
+        if((int)data["Lang"]==1){TranslationServer.SetLocale("en");}
     }
     void FullScreanToggled(bool toggled){
         data["FullSize"]=toggled;
